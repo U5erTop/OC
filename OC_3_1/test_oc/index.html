@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа: Архитектурные подходы ОС</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1>Практическая работа: Архитектурные подходы ОС</h1>
+                    <div class="timer-section">
+                        <div class="timer-display">
+                            <span class="timer-label">Время:</span>
+                            <span id="timer">60:00</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Welcome Screen -->
+        <section id="welcome" class="screen active">
+            <div class="container">
+                <div class="welcome-content">
+                    <div class="welcome-card">
+                        <h2>Добро пожаловать на практическую работу!</h2>
+                        <p class="welcome-description">
+                            Изучите архитектурные подходы операционных систем через интерактивные задания. 
+                            Работа рассчитана на 60 минут и включает 4 основных этапа.
+                        </p>
+                        
+                        <div class="objectives">
+                            <h3>Цели работы:</h3>
+                            <ul class="objectives-list">
+                                <li>Понять различия между архитектурами ОС</li>
+                                <li>Провести практический анализ систем</li>
+                                <li>Создать сравнительную таблицу</li>
+                                <li>Выполнить моделирование архитектур</li>
+                            </ul>
+                        </div>
+
+                        <div class="tasks-overview">
+                            <h3>Этапы работы:</h3>
+                            <div class="tasks-grid">
+                                <div class="task-preview">
+                                    <div class="task-number">1</div>
+                                    <h4>Теоретическое введение</h4>
+                                    <span class="task-duration">15 мин</span>
+                                </div>
+                                <div class="task-preview">
+                                    <div class="task-number">2</div>
+                                    <h4>Исследование архитектуры</h4>
+                                    <span class="task-duration">20 мин</span>
+                                </div>
+                                <div class="task-preview">
+                                    <div class="task-number">3</div>
+                                    <h4>Моделирование</h4>
+                                    <span class="task-duration">15 мин</span>
+                                </div>
+                                <div class="task-preview">
+                                    <div class="task-number">4</div>
+                                    <h4>Презентация</h4>
+                                    <span class="task-duration">10 мин</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn--primary btn--lg" onclick="startLab()">
+                            Начать работу
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 1: Theoretical Introduction -->
+        <section id="task1" class="screen">
+            <div class="container">
+                <div class="task-header">
+                    <h2>Задание 1: Теоретическое введение</h2>
+                    <div class="task-timer">
+                        <span id="task1-timer">15:00</span>
+                    </div>
+                </div>
+
+                <div class="task-content">
+                    <div class="instruction-card">
+                        <p><strong>Инструкция:</strong> Классифицируйте операционные системы по архитектурным подходам. Перетащите каждую ОС в соответствующую категорию.</p>
+                    </div>
+
+                    <div class="classification-area">
+                        <div class="os-cards-source">
+                            <h3>Операционные системы:</h3>
+                            <div id="os-cards" class="os-cards">
+                                <!-- OS cards will be populated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="architecture-categories">
+                            <div class="category-column" data-architecture="Монолитная">
+                                <h4>Монолитная</h4>
+                                <div class="drop-zone" id="monolithic-zone"></div>
+                            </div>
+                            <div class="category-column" data-architecture="Микроядерная">
+                                <h4>Микроядерная</h4>
+                                <div class="drop-zone" id="microkernel-zone"></div>
+                            </div>
+                            <div class="category-column" data-architecture="Гибридная">
+                                <h4>Гибридная</h4>
+                                <div class="drop-zone" id="hybrid-zone"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task-actions">
+                        <button class="btn btn--secondary" onclick="resetTask1()">Сбросить</button>
+                        <button class="btn btn--primary" onclick="checkTask1()">Проверить</button>
+                        <button class="btn btn--outline" onclick="nextTask(2)" id="next1" disabled>Далее</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 2: Architecture Investigation -->
+        <section id="task2" class="screen">
+            <div class="container">
+                <div class="task-header">
+                    <h2>Задание 2: Исследование архитектуры</h2>
+                    <div class="task-timer">
+                        <span id="task2-timer">20:00</span>
+                    </div>
+                </div>
+
+                <div class="task-content">
+                    <div class="instruction-card">
+                        <p><strong>Инструкция:</strong> Выполните команды и проанализируйте результаты. Нажимайте на команды для симуляции их выполнения.</p>
+                    </div>
+
+                    <div class="command-simulator">
+                        <div class="commands-list">
+                            <h3>Команды для исследования:</h3>
+                            <div id="command-buttons" class="command-buttons">
+                                <!-- Command buttons will be populated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="terminal-area">
+                            <h3>Терминал:</h3>
+                            <div class="terminal" id="terminal">
+                                <div class="terminal-prompt">user@system:~$ <span class="cursor">|</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-form">
+                        <h3>Анализ результатов:</h3>
+                        <div class="form-group">
+                            <label class="form-label">Какая архитектура у исследуемой системы?</label>
+                            <select class="form-control" id="architecture-analysis">
+                                <option value="">Выберите архитектуру</option>
+                                <option value="monolithic">Монолитная</option>
+                                <option value="microkernel">Микроядерная</option>
+                                <option value="hybrid">Гибридная</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Обоснование выбора:</label>
+                            <textarea class="form-control" id="analysis-reasoning" placeholder="Объясните свой выбор на основе результатов команд..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="task-actions">
+                        <button class="btn btn--secondary" onclick="prevTask(1)">Назад</button>
+                        <button class="btn btn--primary" onclick="checkTask2()">Проверить</button>
+                        <button class="btn btn--outline" onclick="nextTask(3)" id="next2" disabled>Далее</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 3: Architecture Modeling -->
+        <section id="task3" class="screen">
+            <div class="container">
+                <div class="task-header">
+                    <h2>Задание 3: Моделирование архитектур</h2>
+                    <div class="task-timer">
+                        <span id="task3-timer">15:00</span>
+                    </div>
+                </div>
+
+                <div class="task-content">
+                    <div class="instruction-card">
+                        <p><strong>Инструкция:</strong> Изучите схемы архитектур и заполните сравнительную таблицу. Выберите характеристики для каждого типа архитектуры.</p>
+                    </div>
+
+                    <div class="architecture-schemes">
+                        <div class="scheme-card">
+                            <h4>Монолитная архитектура</h4>
+                            <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/5a72cab7-4467-41e8-9ef0-867c39a0da49.png" alt="Схема монолитной архитектуры" class="architecture-image">
+                        </div>
+                        <div class="scheme-card">
+                            <h4>Микроядерная архитектура</h4>
+                            <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e4a26aa3-5f82-4add-b150-c7a22bb0119d.png" alt="Схема микроядерной архитектуры" class="architecture-image">
+                        </div>
+                    </div>
+
+                    <div class="comparison-chart">
+                        <h3>Сравнительная диаграмма архитектур</h3>
+                        <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/2e8ae1a63eea7afe982cca9098dd1483/18ef587e-8bb6-457e-a6c3-a5a430aab2d4/c440df62.png" alt="Сравнение архитектур ОС" class="comparison-image">
+                    </div>
+
+                    <div class="modeling-tasks">
+                        <h3>Задания по моделированию:</h3>
+                        
+                        <div class="modeling-task">
+                            <h4>1. Выберите преимущества монолитной архитектуры:</h4>
+                            <div class="checkbox-group" id="monolithic-advantages">
+                                <label><input type="checkbox" value="performance"> Высокая производительность</label>
+                                <label><input type="checkbox" value="direct-access"> Прямой доступ к ресурсам</label>
+                                <label><input type="checkbox" value="reliability"> Высокая надежность</label>
+                                <label><input type="checkbox" value="modularity"> Модульность</label>
+                            </div>
+                        </div>
+
+                        <div class="modeling-task">
+                            <h4>2. Выберите преимущества микроядерной архитектуры:</h4>
+                            <div class="checkbox-group" id="microkernel-advantages">
+                                <label><input type="checkbox" value="reliability"> Высокая надежность</label>
+                                <label><input type="checkbox" value="modularity"> Модульность</label>
+                                <label><input type="checkbox" value="performance"> Высокая производительность</label>
+                                <label><input type="checkbox" value="direct-access"> Прямой доступ к ресурсам</label>
+                            </div>
+                        </div>
+
+                        <div class="modeling-task">
+                            <h4>3. Какая архитектура лучше подходит для:</h4>
+                            <div class="scenario-matching">
+                                <div class="scenario-item">
+                                    <span>Встроенные системы реального времени:</span>
+                                    <select class="form-control">
+                                        <option value="">Выберите</option>
+                                        <option value="monolithic">Монолитная</option>
+                                        <option value="microkernel">Микроядерная</option>
+                                        <option value="hybrid">Гибридная</option>
+                                    </select>
+                                </div>
+                                <div class="scenario-item">
+                                    <span>Критически важные системы:</span>
+                                    <select class="form-control">
+                                        <option value="">Выберите</option>
+                                        <option value="monolithic">Монолитная</option>
+                                        <option value="microkernel">Микроядерная</option>
+                                        <option value="hybrid">Гибридная</option>
+                                    </select>
+                                </div>
+                                <div class="scenario-item">
+                                    <span>Настольные компьютеры:</span>
+                                    <select class="form-control">
+                                        <option value="">Выберите</option>
+                                        <option value="monolithic">Монолитная</option>
+                                        <option value="microkernel">Микроядерная</option>
+                                        <option value="hybrid">Гибридная</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task-actions">
+                        <button class="btn btn--secondary" onclick="prevTask(2)">Назад</button>
+                        <button class="btn btn--primary" onclick="checkTask3()">Проверить</button>
+                        <button class="btn btn--outline" onclick="nextTask(4)" id="next3" disabled>Далее</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 4: Presentation -->
+        <section id="task4" class="screen">
+            <div class="container">
+                <div class="task-header">
+                    <h2>Задание 4: Презентация результатов</h2>
+                    <div class="task-timer">
+                        <span id="task4-timer">10:00</span>
+                    </div>
+                </div>
+
+                <div class="task-content">
+                    <div class="instruction-card">
+                        <p><strong>Инструкция:</strong> Сформулируйте выводы по результатам работы и ответьте на вопросы для обсуждения.</p>
+                    </div>
+
+                    <div class="conclusions-form">
+                        <div class="form-group">
+                            <label class="form-label">Основные выводы о различиях архитектур ОС:</label>
+                            <textarea class="form-control" id="main-conclusions" placeholder="Опишите ключевые различия между архитектурными подходами..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Применимость архитектур для разных задач:</label>
+                            <textarea class="form-control" id="applicability" placeholder="Объясните, какие архитектуры лучше подходят для различных сценариев использования..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Тренды развития архитектур ОС:</label>
+                            <textarea class="form-control" id="trends" placeholder="Какие тенденции вы видите в развитии архитектур операционных систем?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Компромиссы производительность vs надежность:</label>
+                            <textarea class="form-control" id="tradeoffs" placeholder="Проанализируйте компромиссы между производительностью и надежностью в разных архитектурах..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="task-actions">
+                        <button class="btn btn--secondary" onclick="prevTask(3)">Назад</button>
+                        <button class="btn btn--primary" onclick="finishLab()">Завершить работу</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results" class="screen">
+            <div class="container">
+                <div class="results-content">
+                    <div class="results-card">
+                        <h2>🎉 Практическая работа завершена!</h2>
+                        
+                        <div class="results-summary">
+                            <h3>Результаты выполнения:</h3>
+                            <div class="results-grid" id="results-grid">
+                                <!-- Results will be populated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="time-summary">
+                            <h3>Затраченное время:</h3>
+                            <div class="time-breakdown" id="time-breakdown">
+                                <!-- Time breakdown will be populated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="final-actions">
+                            <button class="btn btn--primary" onclick="generateReport()">Скачать отчет</button>
+                            <button class="btn btn--secondary" onclick="restartLab()">Начать заново</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
